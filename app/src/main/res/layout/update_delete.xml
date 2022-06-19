@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+    <variable
+        name="updateViewModel"
+        type="com.ajay.roomdbinserapp.viewmodel.MyViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <EditText
+            android:id="@+id/firstname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="enter the first name"
+            android:text="@={updateViewModel.firstName}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <EditText
+            android:id="@+id/lastname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="enter the last name"
+            android:text="@={updateViewModel.lastName}"
+            app:layout_constraintTop_toBottomOf="@id/firstname"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/mobileno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="enter the mobile no."
+            android:text="@={updateViewModel.mobileNo}"
+            app:layout_constraintTop_toBottomOf="@id/lastname"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/update_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/mobileno"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="220dp"
+            android:onClick="@{() -> updateViewModel.updateDataOnClick()}"
+            android:text="@{updateViewModel.updateData}" />
+
+        <Button
+            android:id="@+id/delete_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="220dp"
+            app:layout_constraintStart_toEndOf="@id/update_btn"
+            app:layout_constraintTop_toBottomOf="@id/mobileno"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{() -> updateViewModel.deleteDataOnClick()}"
+            android:text="@{updateViewModel.deleteData}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
